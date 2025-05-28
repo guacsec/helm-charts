@@ -1,11 +1,11 @@
-# Copyright Kusari, Inc. and contributors
+# Copyright Kusari, Inc. and GUAC contributors
 apiVersion: v2
 name: guac
 description: A Helm chart for deploying GUAC to Kubernetes
 
 maintainers:
   - name: kusaridev
-    url: https://github.com/kusaridev/helm-charts
+    url: https://github.com/guacsec/helm-charts
     email: guac-info@kusari.dev
 
 type: application

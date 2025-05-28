@@ -1,5 +1,5 @@
 {*
-  Copyright Kusari, Inc. and contributors
+  Copyright Kusari, Inc. and GUAC contributors
   Licensed under the MIT license. See LICENSE file in the project root for details.
 *}
 
