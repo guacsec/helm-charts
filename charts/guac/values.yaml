@@ -32,6 +32,8 @@ imagePullSecrets:
 ## @param guac.ociCollector.serviceAccount.create - whether to create OCI Collector service account
 ## @param guac.ociCollector.serviceAccount.annotations - OCI Collector service account annotations
 ## @param guac.ociCollector.resources - [map] resource requests or limits of the ociCollector deployment
+## @param guac.ociCollector.extraVolumeMounts - [map] extra volume mounts for the ociCollector deployment
+## @param guac.ociCollector.extraVolumes - [map] extra volumes for the ociCollector deployment
 ## @param guac.depsDevCollector.enabled String Whether to deploy Deps.Dev Collector
 ## @param guac.depsDevCollector.name String Name of the Deps.Dev Collector component.
 ## @param guac.depsDevCollector.annotations.reloader.stakater.com/auto [string] Boolean for deploying [stakater/Reloader] (https://github.com/stakater/Reloader)
