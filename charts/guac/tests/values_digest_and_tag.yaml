@@ -31,3 +31,6 @@ guac:
 
   ingestor:
     name: ingestor
+
+  scorecardCertifier:
+    name: scorecard-certifier

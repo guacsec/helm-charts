@@ -71,3 +71,10 @@ guac:
         key: kusari.cloud/own
         operator: Equal
         value: own
+
+  scorecardCertifier:
+    tolerations:        
+      - effect: NoSchedule
+        key: kusari.cloud/own
+        operator: Equal
+        value: own
