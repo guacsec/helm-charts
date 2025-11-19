@@ -5,6 +5,8 @@ kind: IngressRoute
 metadata:
   name: {{ .Release.Namespace }}
   namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "guac.labels" . | nindent 4 }}
 spec:
   entryPoints:
   {{- range .Values.guac.traefikIngressRoute.entryPoints }}

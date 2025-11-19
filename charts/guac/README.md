@@ -79,6 +79,20 @@ kubectl port-forward svc/guac-nats 4222:4222
 kubectl port-forward svc/collectsub 2782:2782
 ```
 
+### Custom Labels
+You can apply custom labels to all GUAC Kubernetes resources by setting the `guac.customLabels` value. This is useful for organization-wide labeling standards such as team ownership, cost allocation, or environment tagging.
+
+Example:
+```yaml
+guac:
+  customLabels:
+    team: platform
+    environment: production
+    cost-center: engineering
+```
+
+These labels will be applied to all deployments, services, service accounts, config maps, ingresses, and jobs created by the chart.
+
 ### Atlas Migration
 [Atlas](https://atlasgo.io/docs) is a language-independent tool for managing and migrating database schemas using modern DevOps principles. When changes to the ENT schema are made, there needs to be a path of migration. This can be done via Atlas as shown in the [ENT documentation](https://entgo.io/docs/versioned-migrations/#quick-guide).
 Atlas init container allows for running atlas migration for ENT.
@@ -255,6 +269,7 @@ This section contains parameters for configuring the different GUAC components.
 | `guac.pubSubAddr`                                              | String gocloud connection string for pubsub configured via https://gocloud.dev/howto/pubsub/                                                   | `undefined`                                    |
 | `guac.collectorPublishToQueue`                                 | Whether to publish ingestion message to pubsub queue                                                                                           | `true`                                         |
 | `guac.blobAddr`                                                | gocloud connection string for blob store configured via https://gocloud.dev/howto/blob/                                                        | `undefined`                                    |
+| `guac.customLabels`                                            | Custom labels to apply to all GUAC resources                                                                                                   | `{}`                                           |
 | `guac.additionalResources`                                     |                                                                                                                                                | `{}`                                           |
 
 ### nats
@@ -312,7 +327,7 @@ For running the unit tests, install the unittest plugin.
 
 To run unit tests
 
-`helm unittest charts/guac -3`
+`helm unittest charts/guac`
 
 To run Helm chart-testing (ct) lint and install tests
 
