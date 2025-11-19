@@ -36,6 +36,15 @@ Create chart name and version as used by the chart label.
 {{- end }}
 
 {{/*
+User defined labels
+*/}}
+{{- define "guac.common.labels" -}}
+{{- if .Values.guac.customLabels -}}
+{{- toYaml .Values.guac.customLabels }}
+{{- end }}
+{{- end }}
+
+{{/*
 Common labels
 */}}
 {{- define "guac.labels" -}}
@@ -45,6 +54,9 @@ helm.sh/chart: {{ include "guac.chart" . }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
 app.kubernetes.io/managed-by: {{ .Release.Service }}
+{{- if .Values.guac.customLabels }}
+{{ toYaml .Values.guac.customLabels }}
+{{- end }}
 {{- end }}
 
 {{/*

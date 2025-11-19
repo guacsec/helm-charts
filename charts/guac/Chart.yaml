@@ -10,7 +10,7 @@ maintainers:
 
 type: application
 version: 0.7.0
-appVersion: "v0.14.0"
+appVersion: "v1.0.1"
 
 dependencies:
 - name: nats
