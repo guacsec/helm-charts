@@ -66,6 +66,17 @@ imagePullSecrets:
 ## @param guac.cdCertifier.serviceAccount.create - whether to create cdCertifier service account
 ## @param guac.cdCertifier.serviceAccount.annotations - CD Certifier service account annotations
 ## @param guac.cdCertifier.resources - [map] resource requests or limits of the cd Certifier deployment
+## @param guac.scorecardCertifier.enabled String Whether to deploy Scorecard Certifier
+## @param guac.scorecardCertifier.name String Name of the Scorecard Certifier component.
+## @param guac.scorecardCertifier.annotations.reloader.stakater.com/auto [string] Boolean for deploying [stakater/Reloader] (https://github.com/stakater/Reloader)
+## @param guac.scorecardCertifier.replicas Number of replicas for Scorecard Certifier deployment
+## @param guac.scorecardCertifier.image.command Command for the Scorecard Certifier image.  It is not recommended to override this.
+## @param guac.scorecardCertifier.env Environment variables for Scorecard Certifier. Note: GITHUB_AUTH_TOKEN is required and should be provided via secretKeyRef.
+## @param guac.scorecardCertifier.nodeSelector - sets the node selector for where to run the deployment
+## @param guac.scorecardCertifier.tolerations
+## @param guac.scorecardCertifier.serviceAccount.create - whether to create scorecardCertifier service account
+## @param guac.scorecardCertifier.serviceAccount.annotations - Scorecard Certifier service account annotations
+## @param guac.scorecardCertifier.resources - [map] resource requests or limits of the Scorecard Certifier deployment
 ## @param guac.ingestor.enabled String Whether to deploy Ingestor
 ## @param guac.ingestor.name String Name of the ingestor component.
 ## @param guac.ingestor.annotations.reloader.stakater.com/auto [string] Boolean for deploying [stakater/Reloader] (https://github.com/stakater/Reloader)
@@ -262,6 +273,34 @@ guac:
     image:
       command: ['sh', '-c', '/opt/guac/guaccollect cd']
     env: []
+    nodeSelector: {}
+    tolerations: []
+    serviceAccount:
+      create: true
+      annotations: {}
+    resources: {}
+    #   requests:
+    #     cpu: "0.25"
+    #     memory: "0.5G"
+
+  scorecardCertifier:
+    enabled: true
+    name: scorecard-certifier
+    annotations:
+      reloader.stakater.com/auto: "true"
+    replicas: 1
+    image:
+      command: ['sh', '-c', '/opt/guac/guaccollect scorecard']
+    # GITHUB_AUTH_TOKEN is required for scorecard certifier to fetch scorecards from GitHub
+    # Users should create a Kubernetes secret with their GitHub token and reference it here
+    # Example:
+    # kubectl create secret generic github-token --from-literal=token=<your-github-token>
+    env:
+      - name: GITHUB_AUTH_TOKEN
+        valueFrom:
+          secretKeyRef:
+            name: github-token
+            key: token
     nodeSelector: {}
     tolerations: []
     serviceAccount:
