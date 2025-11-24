@@ -284,7 +284,7 @@ guac:
     #     memory: "0.5G"
 
   scorecardCertifier:
-    enabled: true
+    enabled: false
     name: scorecard-certifier
     annotations:
       reloader.stakater.com/auto: "true"
