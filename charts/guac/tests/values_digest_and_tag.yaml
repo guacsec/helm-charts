@@ -6,7 +6,8 @@ imagePullSecrets:
 guac:
   guacImage:
     repository: ghcr.io/guacsec/guac
-    tag: "latest"
+    tag: "v0.1.1"
+    # digest corresponds to guac v0.1.1
     digest: "sha256:167e823f36e268f66b12a79d4c4b39df23c2f87847817c161b6c6ddbc9ee5c4e"
     workingDir: /guac
 
@@ -33,4 +34,5 @@ guac:
     name: ingestor
 
   scorecardCertifier:
+    enabled: true
     name: scorecard-certifier

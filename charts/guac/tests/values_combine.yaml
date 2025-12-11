@@ -73,6 +73,7 @@ guac:
         value: own
 
   scorecardCertifier:
+    enabled: true
     tolerations:        
       - effect: NoSchedule
         key: kusari.cloud/own

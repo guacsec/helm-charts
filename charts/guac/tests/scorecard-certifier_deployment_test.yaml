@@ -6,6 +6,8 @@ templates:
 
 tests:
   - it: deployment should render
+    values:
+      - ./values_digest_and_tag.yaml
     asserts:
       - isKind:
           of: Deployment
