@@ -23,6 +23,8 @@ templates:
   - cd-certifier-sa.yaml
   - visualizer-deployment.yaml
   - visualizer-service.yaml
+  - scorecard-certifier-deployment.yaml
+  - scorecard-certifier-sa.yaml
   - guac-cm.yaml
   - api-only-ingress.yaml
   - ingress.yaml
@@ -271,6 +273,30 @@ tests:
 
   - it: should include customLabels in cd-certifier service account
     template: cd-certifier-sa.yaml
+    values:
+      - ./values_customlabels.yaml
+    asserts:
+      - equal:
+          path: metadata.labels.customlabel-1
+          value: value-1
+      - equal:
+          path: metadata.labels.customlabel-2
+          value: value-2
+
+  - it: should include customLabels in scorecard-certifier deployment
+    template: scorecard-certifier-deployment.yaml
+    values:
+      - ./values_customlabels.yaml
+    asserts:
+      - equal:
+          path: metadata.labels.customlabel-1
+          value: value-1
+      - equal:
+          path: metadata.labels.customlabel-2
+          value: value-2
+
+  - it: should include customLabels in scorecard-certifier service account
+    template: scorecard-certifier-sa.yaml
     values:
       - ./values_customlabels.yaml
     asserts:

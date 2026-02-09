@@ -13,3 +13,6 @@ guac:
 
   traefikIngressRoute:
     enabled: true
+
+  scorecardCertifier:
+    enabled: true
