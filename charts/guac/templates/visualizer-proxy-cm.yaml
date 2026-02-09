@@ -5,6 +5,8 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: visualizer-proxy-cm
+  labels:
+    {{- include "guac.labels" . | nindent 4 }}
 data:
   default.conf: |
     server {

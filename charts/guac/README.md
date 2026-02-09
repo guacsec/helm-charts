@@ -255,6 +255,7 @@ This section contains parameters for configuring the different GUAC components.
 | `guac.pubSubAddr`                                              | String gocloud connection string for pubsub configured via https://gocloud.dev/howto/pubsub/                                                   | `undefined`                                    |
 | `guac.collectorPublishToQueue`                                 | Whether to publish ingestion message to pubsub queue                                                                                           | `true`                                         |
 | `guac.blobAddr`                                                | gocloud connection string for blob store configured via https://gocloud.dev/howto/blob/                                                        | `undefined`                                    |
+| `guac.customLabels`                                            | Custom labels to apply to all GUAC resources                                                                                                   | `{}`                                           |
 | `guac.additionalResources`                                     |                                                                                                                                                | `{}`                                           |
 
 ### nats
@@ -312,7 +313,7 @@ For running the unit tests, install the unittest plugin.
 
 To run unit tests
 
-`helm unittest charts/guac -3`
+`helm unittest charts/guac`
 
 To run Helm chart-testing (ct) lint and install tests
 

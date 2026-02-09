@@ -6,6 +6,8 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: guac-cm
+  labels:
+    {{- include "guac.labels" . | nindent 4 }}
 data:
   guac.yaml: |
 

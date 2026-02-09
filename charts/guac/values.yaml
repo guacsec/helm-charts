@@ -175,6 +175,7 @@ imagePullSecrets:
 ## @param guac.pubSubAddr [nullable] String gocloud connection string for pubsub configured via https://gocloud.dev/howto/pubsub/
 ## @param guac.collectorPublishToQueue Whether to publish ingestion message to pubsub queue
 ## @param guac.blobAddr [nullable] gocloud connection string for blob store configured via https://gocloud.dev/howto/blob/
+## @param guac.customLabels [object] Custom labels to apply to all GUAC resources
 ## @param guac.additionalResources
 
 guac:
@@ -484,6 +485,8 @@ guac:
   # e.g.
   # blobAddr: s3://[bucket_name]?region=[aws_region]
   # blobAddr: file:///tmp/blobstore?no_tmp_dir=true
+
+  customLabels: {}
 
   additionalResources: {}
 

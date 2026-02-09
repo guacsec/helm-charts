@@ -78,6 +78,7 @@ kind: ConfigMap
 metadata:
   name: {{ .Values.guac.sampleData.jobName }}
   labels:
+    {{- include "guac.labels" . | nindent 4 }}
     app.kubernetes.io/name: {{ .Values.guac.sampleData.jobName }}
     app.kubernetes.io/component: {{ .Values.guac.sampleData.jobName }}
     app.kubernetes.io/instance: {{ .Release.Name | quote }}
@@ -126,7 +127,7 @@ data:
         echo running guacone collect...
         time /tmp/guacone collect files ${SHARED_DATA}/guac-data/top-dh-sboms/zookeeper.json
         # for d in guac-data/docs
-        # do 
+        # do
         # done
 
 
