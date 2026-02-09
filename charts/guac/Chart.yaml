@@ -9,7 +9,7 @@ maintainers:
     email: guac-info@kusari.dev
 
 type: application
-version: 0.6.2
+version: 0.7.0
 appVersion: "v0.14.0"
 
 dependencies:

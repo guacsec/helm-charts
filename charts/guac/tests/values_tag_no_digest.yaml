@@ -31,3 +31,7 @@ guac:
 
   graphqlServer:
     name: graphql-server
+
+  scorecardCertifier:
+    enabled: true
+    name: scorecard-certifier
