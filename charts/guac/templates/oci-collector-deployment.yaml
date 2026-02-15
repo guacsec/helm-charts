@@ -51,6 +51,9 @@ spec:
           - name: guac-config
             mountPath: {{ .Values.guac.guacImage.workingDir }}
             readOnly: true
+          {{- with .Values.guac.ociCollector.extraVolumeMounts }}
+          {{- toYaml . | nindent 10 }}
+          {{- end }}
 
 {{- if or .Values.guac.common.env .Values.guac.ociCollector.env }}
         env:
@@ -70,6 +73,10 @@ spec:
         - name: guac-config
           configMap:
             name: guac-cm
+        {{- with .Values.guac.ociCollector.extraVolumes }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+
 {{- if .Values.guac.ociCollector.nodeSelector }}
       nodeSelector:
 {{ toYaml .Values.guac.ociCollector.nodeSelector | indent 8 }}
@@ -85,5 +92,5 @@ spec:
 {{- end }}
 {{- end }}
 
-
 {{- end }}
+
