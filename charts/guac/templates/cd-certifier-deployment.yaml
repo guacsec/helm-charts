@@ -24,7 +24,7 @@ spec:
   template:
     metadata:
       labels:
-        {{- include "guac.selectorLabels" . | nindent 8 }}
+        {{- include "guac.labels" . | nindent 8 }}
         app.kubernetes.io/name: {{ .Values.guac.cdCertifier.name }}
         app.kubernetes.io/component: {{ .Values.guac.cdCertifier.name }}
     spec:

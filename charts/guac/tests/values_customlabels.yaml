@@ -1,0 +1,18 @@
+# Copyright Kusari, Inc. and GUAC contributors
+# Licensed under the MIT license. See LICENSE file in the project root for details.
+guac:
+  customLabels:
+    customlabel-1: value-1
+    customlabel-2: value-2
+
+  ingress:
+    enabled: true
+
+  apiOnlyIngress:
+    enabled: true
+
+  traefikIngressRoute:
+    enabled: true
+
+  scorecardCertifier:
+    enabled: true
